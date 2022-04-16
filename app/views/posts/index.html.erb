@@ -1,12 +1,20 @@
 <% if user_signed_in? %>
-  <h2>投稿</h2>
-  <%= form_with model: @post do |f| %>
-    <%= f.text_area :body %>
-    <div><%= f.submit %></div>
-  <% end %>
+    <h2>投稿</h2>
+    <% if @post.errors.any? %>
+      <% @post.errors.full_messages.each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    <% end %>
+    <%= form_with model: @post do |f| %>
+      <%= f.text_area :body %>
+      <div><%= f.submit %></div>
+    <% end %>
 <% end %>
 
 <h2>投稿一覧</h2>
 <% @posts.each do |post| %>
-  <%= post.body %>
+  <div><%= post.user.name %>：<%= post.body %></div>
+  <% if user_signed_in? && current_user.id === post.user.id %>
+    <%= link_to "削除", post, method: :delete, data: { confirm: "You sure?" } %>
+  <% end %>
 <% end %>
