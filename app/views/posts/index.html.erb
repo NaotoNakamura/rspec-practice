@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+  <h2>投稿</h2>
+  <%= form_with model: @post do |f| %>
+    <%= f.text_area :body %>
+    <div><%= f.submit %></div>
+  <% end %>
+<% end %>
+
+<h2>投稿一覧</h2>
+<% @posts.each do |post| %>
+  <%= post.body %>
+<% end %>
