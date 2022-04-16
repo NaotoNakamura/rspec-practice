@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
 
   before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
-  # before_action :store_current_location, only: [:create, :edit, :destroy]
 
   def index
     @post = Post.new
@@ -43,8 +42,4 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:body)
     end
-
-    # def store_current_location
-    #   store_location_for(:user, request.url)
-    # end
 end
