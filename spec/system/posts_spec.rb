@@ -15,6 +15,7 @@ RSpec.describe "Posts", type: :system do
       expect(page).to have_link '新規登録', href: new_user_registration_path
       expect(page).to have_link 'ログイン', href: new_user_session_path
     end
+    # 未ログイン時にフォームが表示されていないこと
     # ログイン時
   end
 end
