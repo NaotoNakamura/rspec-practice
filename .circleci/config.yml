@@ -27,7 +27,7 @@ jobs:
         name: "db"
         environment:
           POSTGRES_USER: postgres
-          POSTGRES_DB: myapp_test
+          POSTGRES_DB: rspec_practice_test
           POSTGRES_PASSWORD: ""
     environment:
       BUNDLE_JOBS: "4"
